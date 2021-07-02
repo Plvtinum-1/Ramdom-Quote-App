@@ -1,5 +1,5 @@
 import React from 'react';
-import {Spring} from 'react-spring'
+import {Spring} from 'react-spring';
 import './App.css';
 
 
@@ -96,7 +96,7 @@ class App extends React.Component{
           </div>
           <div className="secondDiv">
               <button className="btn"><a id="tweet-quote" target="_blank" href="https://twitter.com/intent/tweet"><i className="fa fa-twitter"></i></a></button>
-              <button onClick={this.handleChange} style={{animationDelay: '2s'}} className="btn new" id="new-quote">New Quote</button>
+              <button onClick={this.handleChange} className="btn new" id="new-quote">New Quote</button>
           </div> 
         </div>
       )} 
