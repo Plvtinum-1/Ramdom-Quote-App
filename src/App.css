@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 
+body {
+  
+     transition: 1.3s background-color;
+  
+}
+
 .App {
   height: 300px;
   width: 600px;

@@ -1,5 +1,7 @@
 import React from 'react';
 import {Spring} from 'react-spring';
+import { Transition, useSpring, animated } from 'react-spring'
+
 import './App.css';
 
 
@@ -9,8 +11,10 @@ class App extends React.Component{
     this.state = {
       quote: 'Remember its only 40% of your potential when you feel tired',
       author: 'Unknown Programmer',
+      animateDiv: false
     }
    this.handleChange = this.handleChange.bind(this)
+   this.handleAnimation = this.handleAnimation.bind(this)
   }
 
   handleChange(){
@@ -61,6 +65,12 @@ class App extends React.Component{
       author: quoteAndAuthor[Math.floor(Math.random() * 20)].author
     } ))
   }   
+  handleAnimation(event){
+    this.setState({
+      animateDiv: !this.state.animateDiv
+    })
+  }
+
   componentDidUpdate(){
     const changingColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
     const quotes = document.querySelectorAll('quote');
@@ -82,11 +92,7 @@ class App extends React.Component{
   
   render(){
     return ( 
-      <Spring
-        from={{opacity: 0}}
-        to={{opacity: 1}}
-      >
-      {props => (
+      <>
         <div className="App" id="quote-box">
           <div className="firstDiv" id="text"> 
               <quote className="firstQ"><i className="fa fa-quote-left icon"></i> {this.state.quote}</quote> 
@@ -98,9 +104,8 @@ class App extends React.Component{
               <button className="btn"><a id="tweet-quote" target="_blank" href="https://twitter.com/intent/tweet"><i className="fa fa-twitter"></i></a></button>
               <button onClick={this.handleChange} className="btn new" id="new-quote">New Quote</button>
           </div> 
-        </div>
-      )} 
-     </Spring>   
+        </div> 
+      </>  
     );
   }
   
